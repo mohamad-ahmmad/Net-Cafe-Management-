@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="388dp" />
+        app:layout_constraintGuide_end="20dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -32,6 +32,126 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="635dp" />
+        app:layout_constraintGuide_begin="693dp" />
+
+    <!-- PS 1 LAYOUT -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/ps_bg"
+        app:layout_constraintBottom_toTopOf="@+id/ps2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/guideline4">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toStartOf="@+id/minField"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/hourField"
+            tools:layout_editor_absoluteY="57dp"
+            android:textColor="@color/design_default_color_primary"
+            />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toStartOf="@+id/secField"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/minField"
+            tools:layout_editor_absoluteY="57dp"
+            android:textColor="@color/design_default_color_primary"
+            />
+
+        <EditText
+            android:id="@+id/secField"
+            android:layout_width="68dp"
+            android:layout_height="45dp"
+            android:background="@drawable/txt_timer"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="textPersonName"
+            android:text="SEC"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            tools:layout_editor_absoluteY="57dp"
+            android:textColor="@color/design_default_color_primary"
+            />
+
+        <EditText
+            android:id="@+id/minField"
+            android:layout_width="68dp"
+            android:layout_height="45dp"
+            android:background="@drawable/txt_timer"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="textPersonName"
+            android:text="MIN"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            tools:layout_editor_absoluteY="57dp"
+            android:textColor="@color/design_default_color_primary"
+            />
+
+        <EditText
+            android:id="@+id/hourField"
+            android:layout_width="68dp"
+            android:layout_height="45dp"
+            android:background="@drawable/txt_timer"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="textPersonName"
+            android:text="HR"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/textView3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="57dp"
+            android:textColor="@color/design_default_color_primary"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- PS 2 LAYOUT -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ps2"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/ps_bg"
+        app:layout_constraintBottom_toTopOf="@+id/profitsLayout"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Profits LAYOUT -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profitsLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/ps2"
+        android:background="@drawable/ps_bg"
+        >
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
