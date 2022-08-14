@@ -2,8 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="391dp"
+    android:layout_height="776dp"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp"
     android:fillViewport="true">
@@ -11,6 +11,248 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".Profits"/>
+        tools:context=".Profits">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="420dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="200dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dailyLayout1"
+            android:layout_width="389dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline14"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="1dp">
+
+            <TextView
+                android:id="@+id/dailyLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="6dp"
+                android:text="Daily:"
+
+                android:textSize="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/ps1Label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ps1Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="17dp"
+                android:text="PS1:"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/ps2Label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dailyLabel" />
+
+            <TextView
+                android:id="@+id/ps2Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="95dp"
+                android:layout_marginBottom="17dp"
+                android:text="PS2:"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/othersLabel"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/othersLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="95dp"
+                android:text="Others:"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/seprateLine"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/ps1Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="25dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toTopOf="@+id/ps2Value"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/othersLabel"
+                app:layout_constraintTop_toBottomOf="@+id/daily" />
+
+            <TextView
+                android:id="@+id/ps2Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="25dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toTopOf="@+id/othersValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/othersLabel" />
+
+            <TextView
+                android:id="@+id/othersValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="2dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toTopOf="@+id/seprateLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/othersLabel" />
+
+            <EditText
+                android:id="@+id/seprateLine"
+                android:layout_width="396dp"
+                android:layout_height="25dp"
+                android:editable="false"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/othersLabel"
+                tools:layout_editor_absoluteX="-4dp" />
+
+            <Spinner
+                android:id="@+id/daily"
+                android:layout_width="138dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toEndOf="@+id/dailyLabel"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="389dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"
+            app:layout_constraintTop_toTopOf="@+id/guideline14"
+            tools:layout_editor_absoluteX="1dp">
+
+            <Spinner
+                android:id="@+id/months"
+                android:layout_width="136dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="56dp"
+                android:textColor="@color/design_default_color_primary"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/monthlyLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="Monthly:"
+                android:textSize="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ps1LabelM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="12dp"
+                android:text="PS1:"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/monthlyLabel" />
+
+            <TextView
+                android:id="@+id/ps2LabelM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="17dp"
+                android:text="PS2:"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ps1LabelM" />
+
+            <TextView
+                android:id="@+id/othersLabelM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="17dp"
+                android:text="Others:"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ps2LabelM" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName8"
+                android:layout_width="400dp"
+                android:layout_height="22dp"
+                android:layout_marginBottom="4dp"
+                android:editable="false"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/othersLabelM" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="82dp"
+                android:layout_marginTop="12dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/ps1LabelM"
+                app:layout_constraintTop_toBottomOf="@+id/months" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="82dp"
+                android:layout_marginTop="26dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/ps2LabelM"
+                app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="26dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/othersLabelM"
+                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

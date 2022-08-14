@@ -7,6 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +63,37 @@ public class Queue extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_queue, container, false);
+        View view = inflater.inflate(R.layout.fragment_queue, container, false);
+
+        Button btnAdd = view.findViewById(R.id.add);
+
+        btnAdd.setOnClickListener(e-> {
+            creatTable(view);});
+            return view;
+
+    }
+    public void creatTable(View view){
+        TableLayout table1 = getView().findViewById(R.id.playersTable);
+
+        TableRow row = new TableRow(getContext());
+
+        EditText nameValue = view.findViewById(R.id.name);
+        TextView name = new TextView(getContext());
+        name.setText(nameValue.getText().toString());
+        row.addView(name);
+
+
+        EditText gameValue = view.findViewById(R.id.game);
+        TextView game = new TextView(getContext());
+        game.setText(gameValue.getText().toString());
+        row.addView(game);
+
+
+        EditText psValue = view.findViewById(R.id.ps);
+        TextView ps = new TextView(getContext());
+        ps.setText(psValue.getText().toString());
+        row.addView(ps);
+
+        table1.addView(row);
     }
 }

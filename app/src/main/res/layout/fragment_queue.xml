@@ -6,13 +6,154 @@
     android:layout_height="match_parent"
     tools:context=".Queue">
 
-    <TextView
-        android:id="@+id/textView"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="QUEUE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="377dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="476dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="21dp" />
+
+    <TableLayout
+        android:id="@+id/playersTable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline9">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:background="@color/design_default_color_primary">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10px"
+                android:text="name"
+                android:layout_marginRight="70dp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10px"
+                android:text="Game"
+                android:layout_marginRight="70dp"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10px"
+                android:text="Play Station"
+                android:layout_marginRight="70dp"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/white" />
+
+        </TableRow>
+
+<!--        <TableRow-->
+<!--            android:layout_width="match_parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="10px"-->
+<!--                android:text="mohamad"-->
+<!--                android:layout_marginRight="70dp"-->
+<!--                android:textColor="@color/black" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="10px"-->
+<!--                android:text="GTA"-->
+<!--                android:layout_marginRight="70dp"-->
+<!--                android:textColor="@color/black" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="10px"-->
+<!--                android:text="ps1"-->
+<!--                android:layout_marginRight="70dp"-->
+<!--                android:textColor="@color/black" />-->
+
+<!--        </TableRow>-->
+
+    </TableLayout>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/txt_bg"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/playersTable" />
+
+    <EditText
+        android:id="@+id/game"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/txt_bg"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Game"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <EditText
+        android:id="@+id/ps"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/txt_bg"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Play Station"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/game" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="6dp"
+        android:text="ADD +"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/ps" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
