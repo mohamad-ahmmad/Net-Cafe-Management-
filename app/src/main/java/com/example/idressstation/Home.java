@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import com.example.idressstation.listeners.HomeProfitListener;
+import com.example.idressstation.listeners.timerClick;
 
 
 /**
@@ -60,6 +61,7 @@ public class Home extends Fragment {
 
         InitializeData();
 
+
     }
 
     private void InitializeData() {
@@ -85,8 +87,14 @@ public class Home extends Fragment {
 
         ((Button)view.findViewById(R.id.btnAdd)).setOnClickListener(handler);
         ((Button)view.findViewById(R.id.btnRemove)).setOnClickListener(handler);
+        Button start = view.findViewById(R.id.btnStart);
+        start.setOnClickListener(new timerClick(view , 1));
+        Button start2 = view.findViewById(R.id.btnStart2);
+        start2.setOnClickListener(new timerClick(view , 2));
         return view;
 
 
     }
+
+
 }
