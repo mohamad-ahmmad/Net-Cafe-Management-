@@ -4,9 +4,18 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,12 +62,28 @@ public class Profits extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.fragment_profits, null);
+
+
+       // EditText editText = (EditText) dialogView.findViewById(R.id.et_sub_name);
+        String planets_array[] = {"hi,hi"};
+        Spinner dailySpinner = dialogView.findViewById(R.id.daily);
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,planets_array);
+
+        dailySpinner.setAdapter(adapter);
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Log.d("ONVIEW", "ON CREATE VIEW");
         return inflater.inflate(R.layout.fragment_profits, container, false);
     }
+
 }

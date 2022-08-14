@@ -5,15 +5,22 @@
       <map>
         <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/drawable/ic_baseline_monetization_on_24.xml" value="0.1" />
         <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/drawable/ps_bg.xml" value="0.2265" />
-        <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/drawable/txt_bg.xml" value="0.2265" />
-        <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/drawable/txt_timer.xml" value="0.2265" />
         <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/layout/fragment_analysis.xml" value="0.24010416666666667" />
+<<<<<<< HEAD
         <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/layout/fragment_daily_row.xml" value="0.25416666666666665" />
+=======
+>>>>>>> 56656488f63261d1b934d3889f07d89a5af36b62
         <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/layout/fragment_profits.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/layout/fragment_queue.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER-M/AndroidStudioProjects/IdressStation/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/pc/Desktop/mobile/app/src/main/res/drawable/ps_bg.xml" value="0.1225" />
+        <entry key="..\:/Users/pc/Desktop/mobile/app/src/main/res/drawable/txt_bg.xml" value="0.1225" />
+        <entry key="..\:/Users/pc/Desktop/mobile/app/src/main/res/drawable/txt_timer.xml" value="0.1225" />
+        <entry key="..\:/Users/pc/Desktop/mobile/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/pc/Desktop/mobile/app/src/main/res/layout/fragment_profits.xml" value="0.25" />
+        <entry key="..\:/Users/pc/Desktop/mobile/app/src/main/res/layout/fragment_queue.xml" value="0.33" />
       </map>
     </option>
   </component>
