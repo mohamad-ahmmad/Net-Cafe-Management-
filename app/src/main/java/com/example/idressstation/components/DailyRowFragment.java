@@ -1,23 +1,21 @@
-package com.example.idressstation;
+package com.example.idressstation.components;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
 
-import com.example.idressstation.listeners.HomeProfitListener;
-
+import com.example.idressstation.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Home#newInstance} factory method to
+ * Use the {@link DailyRowFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Home extends Fragment {
+public class DailyRowFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +26,7 @@ public class Home extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Home() {
+    public DailyRowFragment() {
         // Required empty public constructor
     }
 
@@ -38,11 +36,11 @@ public class Home extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Home.
+     * @return A new instance of fragment DailyRowFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Home newInstance(String param1, String param2) {
-        Home fragment = new Home();
+    public static DailyRowFragment newInstance(String param1, String param2) {
+        DailyRowFragment fragment = new DailyRowFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -58,35 +56,13 @@ public class Home extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        InitializeData();
-
-    }
-
-    private void InitializeData() {
-
-
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =inflater.inflate(R.layout.fragment_home, container, false);
-
-        String str[] = {"Winston", "Chips Type A", "Sandwich"};
-        //getView().findViewById().
-        Spinner spn = view.findViewById(R.id.spnTypes);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext() , android.R.layout.simple_spinner_item, str);
-        spn.setAdapter(adapter);
-
-        //Setting listeners
-        HomeProfitListener handler = new HomeProfitListener(view);
-
-        ((Button)view.findViewById(R.id.btnAdd)).setOnClickListener(handler);
-        ((Button)view.findViewById(R.id.btnRemove)).setOnClickListener(handler);
-        return view;
-
-
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_daily_row, container, false);
     }
 }

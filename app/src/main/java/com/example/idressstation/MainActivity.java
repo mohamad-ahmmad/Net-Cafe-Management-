@@ -1,6 +1,7 @@
 package com.example.idressstation;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -9,6 +10,10 @@ import android.content.ClipData;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
 import com.example.idressstation.databinding.ActivityMainBinding;
 

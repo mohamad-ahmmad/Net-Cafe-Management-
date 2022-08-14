@@ -46,82 +46,146 @@
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/guideline4">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=":"
-            android:textSize="34sp"
-            app:layout_constraintEnd_toStartOf="@+id/minField"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/hourField"
-            tools:layout_editor_absoluteY="57dp"
-            android:textColor="@color/design_default_color_primary"
-            />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=":"
-            android:textSize="34sp"
-            app:layout_constraintEnd_toStartOf="@+id/secField"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/minField"
-            tools:layout_editor_absoluteY="57dp"
-            android:textColor="@color/design_default_color_primary"
-            />
-
-        <EditText
-            android:id="@+id/secField"
-            android:layout_width="68dp"
-            android:layout_height="45dp"
-            android:background="@drawable/txt_timer"
-            android:ems="10"
-            android:enabled="false"
-            android:inputType="textPersonName"
-            android:text="SEC"
-            android:textAlignment="center"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="320dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="66dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView5"
-            tools:layout_editor_absoluteY="57dp"
-            android:textColor="@color/design_default_color_primary"
-            />
-
-        <EditText
-            android:id="@+id/minField"
-            android:layout_width="68dp"
-            android:layout_height="45dp"
-            android:background="@drawable/txt_timer"
-            android:ems="10"
-            android:enabled="false"
-            android:inputType="textPersonName"
-            android:text="MIN"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toStartOf="@+id/textView5"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            tools:layout_editor_absoluteY="57dp"
-            android:textColor="@color/design_default_color_primary"
-            />
-
-        <EditText
-            android:id="@+id/hourField"
-            android:layout_width="68dp"
-            android:layout_height="45dp"
-            android:background="@drawable/txt_timer"
-            android:ems="10"
-            android:enabled="false"
-            android:inputType="textPersonName"
-            android:text="HR"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toStartOf="@+id/textView3"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="57dp"
-            android:textColor="@color/design_default_color_primary"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/fieldAmount">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toStartOf="@+id/minField"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/hourField"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/hourField"
+                android:layout_width="68dp"
+                android:layout_height="45dp"
+                android:background="@drawable/txt_timer"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:text="HR"
+                android:textAlignment="center"
+                android:textColor="@color/design_default_color_primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toStartOf="@+id/secField"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/minField"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/minField"
+                android:layout_width="68dp"
+                android:layout_height="45dp"
+                android:background="@drawable/txt_timer"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:text="MIN"
+                android:textAlignment="center"
+                android:textColor="@color/design_default_color_primary"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView5"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/secField"
+                android:layout_width="68dp"
+                android:layout_height="45dp"
+                android:background="@drawable/txt_timer"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:text="SEC"
+                android:textAlignment="center"
+                android:textColor="@color/design_default_color_primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/fieldAmount"
+            android:layout_width="189dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="17dp"
+            android:background="@drawable/txt_bg"
+            android:ems="10"
+            android:inputType="number"
+            android:text="Amount"
+            app:layout_constraintEnd_toStartOf="@+id/btnDone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="20dp"
+            android:text="Done"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="87dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="16dp"
+            android:text="Start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnStop" />
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="87dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="-100dp"
+            android:layout_marginBottom="20dp"
+            android:text="STOP"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- PS 2 LAYOUT -->
@@ -136,6 +200,141 @@
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
+        <EditText
+            android:id="@+id/fieldAmount2"
+            android:layout_width="189dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/txt_bg"
+            android:ems="10"
+            android:inputType="number"
+            android:text="Amount"
+            app:layout_constraintEnd_toStartOf="@+id/btnDone2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnDone2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="4dp"
+            android:text="Done"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fieldAmount2">
+
+            <EditText
+                android:id="@+id/hourField2"
+                android:layout_width="68dp"
+                android:layout_height="45dp"
+                android:background="@drawable/txt_timer"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:text="HR"
+                android:textAlignment="center"
+                android:textColor="@color/design_default_color_primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView6"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/minField3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/hourField2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/minField3"
+                android:layout_width="68dp"
+                android:layout_height="45dp"
+                android:background="@drawable/txt_timer"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:text="MIN"
+                android:textAlignment="center"
+                android:textColor="@color/design_default_color_primary"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView7"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/secField3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/minField3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/secField3"
+                android:layout_width="68dp"
+                android:layout_height="45dp"
+                android:background="@drawable/txt_timer"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:text="SEC"
+                android:textAlignment="center"
+                android:textColor="@color/design_default_color_primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView7"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnStop2"
+            android:layout_width="87dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="159dp"
+            android:text="STOP"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnStart2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+        <Button
+            android:id="@+id/btnStart2"
+            android:layout_width="87dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="50dp"
+            android:text="Start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnStop2"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Profits LAYOUT -->
@@ -145,13 +344,75 @@
         android:layout_height="0dp"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="6dp"
+        android:background="@drawable/ps_bg"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/ps2"
-        android:background="@drawable/ps_bg"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/ps2">
 
+        <Spinner
+            android:id="@+id/spnTypes"
+            android:layout_width="149dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textVieww"
+
+            />
+
+        <TextView
+            android:id="@+id/textVieww"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="25dp"
+            android:text="Type:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="50dp"
+            android:text="Amount:"
+            app:layout_constraintStart_toEndOf="@+id/spnTypes"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fieldTypeAmount"
+            android:layout_width="92dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="50dp"
+            android:text="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
+            android:text="+ Add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spnTypes" />
+
+        <Button
+            android:id="@+id/btnRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="- Remove"
+            app:layout_constraintEnd_toStartOf="@+id/btnAdd"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spnTypes" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
