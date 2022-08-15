@@ -148,12 +148,26 @@
 
     <Button
         android:id="@+id/add"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
+        android:layout_width="120dp"
+        android:layout_height="55dp"
         android:layout_marginTop="6dp"
+        android:layout_marginEnd="40dp"
         android:text="ADD +"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/ps" />
+
+    <Button
+        android:id="@+id/btnRemoveQueue"
+        android:layout_width="120dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:text="Remove -"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/add"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ps"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

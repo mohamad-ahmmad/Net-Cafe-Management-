@@ -3,8 +3,12 @@ package com.example.idressstation;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -12,6 +16,10 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.example.idressstation.util.Player;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,46 +62,170 @@ public class Queue extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            Log.d("VIEW",mParam1);
+            Log.d("VIEW",mParam2);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         View view = inflater.inflate(R.layout.fragment_queue, container, false);
 
-        Button btnAdd = view.findViewById(R.id.add);
+        //RELOAD DATA
+        if( arrPlayer.size()!=0) {
+            for (Player temp : arrPlayer)
+                addRowArray(view, temp.getName(), temp.getGame(), temp.getPs());
 
+        }
+
+
+
+        Button btnAdd = view.findViewById(R.id.add);
         btnAdd.setOnClickListener(e-> {
-            creatTable(view);});
+            addQueue(view);
+
+        });
+
+        Button btnRemove = (Button) view.findViewById(R.id.btnRemoveQueue);
+        btnRemove.setOnClickListener(e->{
+
+            EditText nameValue = view.findViewById(R.id.name);
+            String strName=nameValue.getText().toString();
+
+            deleteRow(view ,strName);
+
+        });
+
+        RemoveAlltext handler = new RemoveAlltext();
+
+
+        ((EditText)view.findViewById(R.id.name)).setOnTouchListener(handler);
+        ((EditText)view.findViewById(R.id.game)).setOnTouchListener(handler);
+        ((EditText)view.findViewById(R.id.ps)).setOnTouchListener(handler);
+
+
             return view;
 
     }
-    public void creatTable(View view){
-        TableLayout table1 = getView().findViewById(R.id.playersTable);
+    static ArrayList<Player> arrPlayer = new ArrayList<>();
+
+
+
+    public void addQueue(View view){
+
+
+        addRow(view);
+
+    }
+
+    private void addRow(View view){
+
+        TableLayout table1 = view.findViewById(R.id.playersTable);
 
         TableRow row = new TableRow(getContext());
 
         EditText nameValue = view.findViewById(R.id.name);
         TextView name = new TextView(getContext());
-        name.setText(nameValue.getText().toString());
+        String strName=nameValue.getText().toString();
+        name.setText(strName);
         row.addView(name);
 
 
         EditText gameValue = view.findViewById(R.id.game);
         TextView game = new TextView(getContext());
-        game.setText(gameValue.getText().toString());
+        String strGame = gameValue.getText().toString();
+        game.setText(strGame);
         row.addView(game);
 
 
         EditText psValue = view.findViewById(R.id.ps);
         TextView ps = new TextView(getContext());
-        ps.setText(psValue.getText().toString());
+        String strPs = psValue.getText().toString();
+        ps.setText(strPs);
         row.addView(ps);
 
+
+        arrPlayer.add(new Player(strName, strGame, strPs));
         table1.addView(row);
+
+    }
+
+    private void addRowArray(View view, String strName, String strGame, String strPs){
+
+        TableLayout table1 = view.findViewById(R.id.playersTable);
+
+        TableRow row = new TableRow(getContext());
+
+
+        TextView name = new TextView(getContext());
+
+        name.setText(strName);
+        row.addView(name);
+
+
+
+        TextView game = new TextView(getContext());
+
+        game.setText(strGame);
+        row.addView(game);
+
+
+
+        TextView ps = new TextView(getContext());
+
+        ps.setText(strPs);
+        row.addView(ps);
+
+
+
+        table1.addView(row);
+
+    }
+
+    private void deleteRow(View view ,String name){
+        Log.d("HERE2" , "HEY");
+         String strName = name.trim();
+        Log.d("HERE3" , "HEY");
+
+        if(arrPlayer.size()==0)
+            return;
+
+        Log.d("HERE1" , "HEY");
+        for(Player temp : arrPlayer){
+         if(strName.equals(temp.getName())){
+             arrPlayer.remove(temp);
+
+             updateTable(view);
+             return;
+         }
+        }
+
+    }
+
+    private void updateTable(View view) {
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+
+        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentComp, this.getClass(), null);
+        fragmentTransaction.commit();
+    }
+
+    class RemoveAlltext implements View.OnTouchListener{
+
+
+
+        @Override
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            Log.d("HERE","hereee");
+            ((EditText) view).setText("");
+            return false;
+        }
     }
 }

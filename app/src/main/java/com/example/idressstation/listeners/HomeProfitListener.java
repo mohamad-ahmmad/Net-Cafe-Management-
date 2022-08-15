@@ -29,7 +29,7 @@ public class HomeProfitListener implements View.OnClickListener {
     }
 
     private void addClicked(){
-        
+
     }
 
     private void removeClicked(){
