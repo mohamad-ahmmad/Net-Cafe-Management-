@@ -19,6 +19,13 @@ import com.example.idressstation.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+
+
+
+
+
     ActivityMainBinding bind;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

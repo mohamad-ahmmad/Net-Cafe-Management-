@@ -2,6 +2,8 @@ package com.example.idressstation;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,12 +71,21 @@ public class Home extends Fragment {
 
 
     }
-
+    private static timerClick timer1 ;
+    private static timerClick timer2 ;
+    private static boolean started=false;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_home, container, false);
+        if (!started) {
+            timer2 = new timerClick(view, 2);
+            timer1 = new timerClick(view, 1);
 
+            started=!started;
+        }
+        timer2.refresh(view);
+        timer1.refresh(view);
         String str[] = {"Winston", "Chips Type A", "Sandwich"};
         //getView().findViewById().
         Spinner spn = view.findViewById(R.id.spnTypes);
@@ -88,9 +99,19 @@ public class Home extends Fragment {
         ((Button)view.findViewById(R.id.btnAdd)).setOnClickListener(handler);
         ((Button)view.findViewById(R.id.btnRemove)).setOnClickListener(handler);
         Button start = view.findViewById(R.id.btnStart);
-        start.setOnClickListener(new timerClick(view , 1));
+
+
+        start.setOnClickListener(timer1);
+        Log.d("HASLISTENER" ,String.valueOf(start.hasOnClickListeners()) );
         Button start2 = view.findViewById(R.id.btnStart2);
-        start2.setOnClickListener(new timerClick(view , 2));
+
+        start2.setOnClickListener(timer2);
+
+        Button pause = view.findViewById(R.id.btnStop);
+        pause.setOnClickListener(timer1);
+
+        Button pause2 = view.findViewById(R.id.btnStop2);
+        pause2.setOnClickListener(timer2);
         return view;
 
 
