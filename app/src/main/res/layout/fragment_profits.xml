@@ -139,7 +139,10 @@
                 android:layout_marginStart="95dp"
                 android:layout_marginTop="6dp"
                 app:layout_constraintStart_toEndOf="@+id/dailyLabel"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/txt_bg"
+
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -159,7 +162,9 @@
                 android:textColor="@color/design_default_color_primary"
 
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/txt_bg"
+                />
 
             <TextView
                 android:id="@+id/monthlyLabel"

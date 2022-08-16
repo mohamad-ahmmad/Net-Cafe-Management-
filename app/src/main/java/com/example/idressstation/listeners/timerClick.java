@@ -1,11 +1,15 @@
 package com.example.idressstation.listeners;
 
 import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
@@ -20,9 +24,10 @@ public class timerClick implements View.OnClickListener {
     private EditText min;
     private EditText sec;
     private EditText amount;
+    private Boolean state =true;
     private Button start;
     private Button pause;
-    private long amountValue;
+    private double amountValue;
     private boolean pauseFlag = false;
     private long infinitTime = 1000000000;
     private int timeCountS = 0;
@@ -60,6 +65,8 @@ public class timerClick implements View.OnClickListener {
             sec.setText(currentSec);
             min.setText(currentMin);
             hours.setText(currentHour);
+            start.setEnabled(state);
+
 
         }else{
             amount = view.findViewById(R.id.fieldAmount2);
@@ -80,11 +87,17 @@ public class timerClick implements View.OnClickListener {
             sec.setText(currentSec);
             min.setText(currentMin);
             hours.setText(currentHour);
+            start.setEnabled(state);
         }
     }
     public timerClick(View v , int ps){
+
+
         view=v;
         this.ps=ps;
+
+
+
 
         if(ps == 1){
 
@@ -106,16 +119,34 @@ public class timerClick implements View.OnClickListener {
     }
 
 
-    Long time;
+    long time;
     @Override
     public void onClick(View view) {
+
+
+//        try {
+//            Uri path = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+//            RingtoneManager.setActualDefaultRingtoneUri(
+//                    getView().getContext(), RingtoneManager.TYPE_RINGTONE, path
+//            );
+//            Ringtone r = RingtoneManager.getRingtone(getView().getContext(), path);
+//            r.play();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         type = ((Button) view).getText().toString();
 
         if (type.equals("start") && !amount.getText().toString().equals("")) {
-            amountValue = Integer.parseInt(amount.getText().toString());
-             time = ((long)amountValue) * 900000;
-            startTimer();
-            amountOnRefresh=String.valueOf(amountValue);
+           try{
+               amountValue = Double.parseDouble(amount.getText().toString());
+           }catch(Exception e) {
+               Toast.makeText(getView().getContext(), "Invalid number", Toast.LENGTH_LONG ).show();
+               return;
+           }
+             time = (long)(amountValue * 900000);
+
+                 startTimer();
+
         }
        else if (type.equals("pause")) {
             Log.d("Type1", "iam in pause");
@@ -128,17 +159,24 @@ public class timerClick implements View.OnClickListener {
             pause.setText("pause");
             start.setText("start");
             time = (Long.parseLong(currentHour)*3600 + Long.parseLong(currentMin)*60+Long.parseLong(currentSec))*1000;
-            startOpenTime(infinitTime);
+
+                startOpenTime(infinitTime);
+
         }
         else if(type.equals("resume") && !amount.getText().toString().equals("")){
             pauseFlag=false;
             pause.setText("pause");
             start.setText("start");
             time = (Long.parseLong(currentHour)*3600 + Long.parseLong(currentMin)*60+Long.parseLong(currentSec))*1000;
-            startTimer();
+
+                startTimer();
+
         }
         else if(type.equals("start") && amount.getText().toString().equals("")){
-            startOpenTime(infinitTime);
+
+                startOpenTime(infinitTime);
+
+
         }
 
     }
@@ -146,6 +184,8 @@ public class timerClick implements View.OnClickListener {
     private CountDownTimer count ;
 
     public void startTimer() {
+        state=false;
+        start.setEnabled(state);
 
        count =   new CountDownTimer(time, 1000){
 
@@ -172,13 +212,16 @@ public class timerClick implements View.OnClickListener {
 
             @Override
             public void onFinish() {
-
+                MediaPlayer player = MediaPlayer.create(getView().getContext(), R.raw.song);
+                player.start();
             }
         }.start() ;
 
     }
 
     public void pauseTimer() {
+        state=true;
+        start.setEnabled(state);
         pause.setText("stop");
         start.setText("resume");
         pauseFlag = true;
@@ -187,7 +230,8 @@ public class timerClick implements View.OnClickListener {
 
     }
     public void stopTimer(){
-
+        state=true;
+        start.setEnabled(state);
         double hoursR = Integer.parseInt(hours.getText().toString());
         double minR = Integer.parseInt(min.getText().toString());
            double remain = (hoursR * 60 + minR) / 15;
@@ -205,6 +249,8 @@ public class timerClick implements View.OnClickListener {
 
     }
     public void startOpenTime(long openTime){
+        state=false;
+        start.setEnabled(state);
         count =   new CountDownTimer(openTime, 1000){
 
             @Override
