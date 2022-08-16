@@ -212,8 +212,16 @@ public class timerClick implements View.OnClickListener {
 
             @Override
             public void onFinish() {
+                state = true;
                 MediaPlayer player = MediaPlayer.create(getView().getContext(), R.raw.song);
                 player.start();
+                pause.setText("pause");
+                start.setText("start");
+                hours.setText("HR");
+                min.setText("MIN");
+                sec.setText("SEC");
+                amount.setText("");
+                start.setEnabled(state);
             }
         }.start() ;
 
