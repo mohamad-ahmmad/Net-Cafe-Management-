@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.core.app.NotificationCompat;
+
 import com.example.idressstation.MainActivity;
 import com.example.idressstation.R;
 
@@ -22,6 +24,10 @@ public class timerClick implements View.OnClickListener {
     private Button pause;
     private long amountValue;
     private boolean pauseFlag = false;
+    private long infinitTime = 1000000000;
+    private int timeCountS = 0;
+    private int timeCountM = 0;
+    private int timeCountH = 0;
 
     private String currentSec="SEC", currentMin="MIN",currentHour="HR";
 
@@ -65,6 +71,10 @@ public class timerClick implements View.OnClickListener {
             if(pauseFlag) {
                 pause.setText("stop");
                 start.setText("resume");
+            }else{
+                pause.setText("pause");
+                start.setText("start");
+               
             }
             amount.setText(amountOnRefresh);
             sec.setText(currentSec);
@@ -100,8 +110,8 @@ public class timerClick implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         type = ((Button) view).getText().toString();
-       // Log.d("Type", type);
-        if (type.equals("start")) {
+
+        if (type.equals("start") && !amount.getText().toString().equals("")) {
             amountValue = Integer.parseInt(amount.getText().toString());
              time = ((long)amountValue) * 900000;
             startTimer();
@@ -112,15 +122,23 @@ public class timerClick implements View.OnClickListener {
             pauseTimer();
         }
        else if(type.equals("stop")){
-
-
+           stopTimer();
+        } else if(type.equals("resume") && amount.getText().toString().equals("")){
+            pauseFlag=false;
+            pause.setText("pause");
+            start.setText("start");
+            time = (Long.parseLong(currentHour)*3600 + Long.parseLong(currentMin)*60+Long.parseLong(currentSec))*1000;
+            startOpenTime(infinitTime);
         }
-        else if(type.equals("resume")){
+        else if(type.equals("resume") && !amount.getText().toString().equals("")){
             pauseFlag=false;
             pause.setText("pause");
             start.setText("start");
             time = (Long.parseLong(currentHour)*3600 + Long.parseLong(currentMin)*60+Long.parseLong(currentSec))*1000;
             startTimer();
+        }
+        else if(type.equals("start") && amount.getText().toString().equals("")){
+            startOpenTime(infinitTime);
         }
 
     }
@@ -168,8 +186,55 @@ public class timerClick implements View.OnClickListener {
 
 
     }
+    public void stopTimer(){
+
+        double hoursR = Integer.parseInt(hours.getText().toString());
+        double minR = Integer.parseInt(min.getText().toString());
+           double remain = (hoursR * 60 + minR) / 15;
+           Log.d("remain",String.valueOf(remain));
+           amount.setText("change = " + String.valueOf(remain));
+        hours.setText("HR");
+        min.setText("MIN");
+        sec.setText("SEC");
+        start.setText("start");
+        pause.setText("pause");
+        timeCountS = 0;
+        timeCountM = 0;
+        timeCountH = 0;
+        pauseFlag = false;
+
+    }
+    public void startOpenTime(long openTime){
+        count =   new CountDownTimer(openTime, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
 
 
+               if(timeCountS == 60){
+                   timeCountS = 0;
+                   timeCountM++;
+
+               }
+               else if(timeCountM == 60){
+                   timeCountM = 0;
+                   timeCountH++;
+               }
+                hours.setText(String.valueOf(timeCountH));
+                min.setText(String.valueOf(timeCountM));
+                sec.setText(String.valueOf(timeCountS));
+                currentSec = String.valueOf(timeCountS);
+                currentMin = String.valueOf(timeCountM);
+                currentHour = String.valueOf(timeCountH);
+              timeCountS++;
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start() ;
+    }
 
 }
 
